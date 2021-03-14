@@ -9,7 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Root
 {
-    public static function handle(string $root) {
+    public static function handle(string $root): void
+    {
         (new Dotenv())->bootEnv($root.'/.env');
 
         if ($_SERVER['APP_DEBUG']) {
