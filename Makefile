@@ -22,14 +22,14 @@ build-php-test:
 lint: lint-php ## Lint the application
 
 lint-php: build-php-test
-	$(COMPOSER_BIN)/php-cs-fixer fix --dry-run
-	$(COMPOSER_BIN)/phpcs --runtime-set ignore_warnings_on_exit 1
+	$(COMPOSER_BIN)/php-cs-fixer fix
+	$(COMPOSER_BIN)/phpcs
 	$(COMPOSER_BIN)/phpstan analyse src --level=max
 
 test: test-php ## Test the application
 
 test-php: build-php-test
-	bin/phpunit --configuration phpunit.xml.dist --coverage-text --colors=never
+	$(COMPOSER_BIN)/phpunit tests
 
 clean: ## Remove files listed in .gitignore (possibly with some exceptions)
 	@git init 2> /dev/null
