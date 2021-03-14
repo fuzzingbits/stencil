@@ -1,0 +1,15 @@
+# System Files
+/.vscode/
+/.idea/
+.DS_Store
+
+# Temporary Files
+/var/
+
+# PHP Files
+/vendor/
+.phpunit.result.cache
+.php_cs.cache
+.phpcs-cache
+/.env.local
+/.env.*.local

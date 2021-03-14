@@ -1,0 +1,29 @@
+{
+    "name": "fuzzingbits/stencil",
+    "description": "A wrapper for creating Symfony web services.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "FuzzingBits\\Stencil\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FuzzingBits\\Stencil\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "symfony/http-foundation": "^5.2",
+        "symfony/http-kernel": "^5.2",
+        "symfony/routing": "^5.2",
+        "symfony/framework-bundle": "^5.2",
+        "symfony/dotenv": "^5.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "phpstan/phpstan": "^0.12.81",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpunit/phpunit": "^9.5"
+    }
+}
