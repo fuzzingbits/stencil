@@ -1,0 +1,7 @@
+index:
+  path: /
+  controller: FuzzingBits\Stencil\Controller\DefaultController::indexAction
+
+hello:
+  path: /hello
+  controller: FuzzingBits\Stencil\Controller\DefaultController::helloAction
