@@ -17,6 +17,6 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
-    FuzzingBits\Stencil\EventListener\ExceptionListener:
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception }
+    # FuzzingBits\Stencil\EventListener\ExceptionListener:
+    #     tags:
+    #         - { name: kernel.event_listener, event: kernel.exception }

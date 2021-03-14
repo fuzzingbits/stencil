@@ -13,6 +13,16 @@ class Kernel extends BaseKernel
 
     private string $customProjectDir = '';
 
+    public function registerBundles(): iterable
+    {
+        $contents = require dirname(__DIR__).'/config/bundles.php';
+        foreach ($contents as $class => $envs) {
+            if ($envs[$this->environment] ?? $envs['all'] ?? false) {
+                yield new $class();
+            }
+        }
+    }
+
     public function getProjectDir(): string
     {
         return $this->customProjectDir;
