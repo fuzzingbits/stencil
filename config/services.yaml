@@ -5,7 +5,7 @@ services:
         autowire: true
         autoconfigure: true
 
-    App\:
+    FuzzingBits\Stencil\:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
@@ -13,10 +13,10 @@ services:
             - '../src/Kernel.php'
             - '../src/Tests/'
 
-    App\Controller\:
+    FuzzingBits\Stencil\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
-    App\EventListener\ExceptionListener:
+    FuzzingBits\Stencil\EventListener\ExceptionListener:
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
