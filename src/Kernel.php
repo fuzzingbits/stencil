@@ -11,6 +11,18 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    private string $customProjectDir = '';
+
+    public function getProjectDir(): string
+    {
+        return $this->customProjectDir;
+    }
+
+    public function setProjectDir(string $projectDir): void
+    {
+        $this->customProjectDir = $projectDir;
+    }
+
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $container->import('../config/{packages}/*.yaml');

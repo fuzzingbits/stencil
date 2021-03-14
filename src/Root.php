@@ -20,6 +20,7 @@ class Root
         }
 
         $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+        $kernel->setProjectDir($root);
         $request = Request::createFromGlobals();
         $response = $kernel->handle($request);
         $response->send();
