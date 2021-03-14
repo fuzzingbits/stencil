@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace FuzzingBits\Stencil\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
