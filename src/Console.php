@@ -18,7 +18,7 @@ class Console
             putenv('APP_ENV='.$_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = $env);
         }
 
-        (new Dotenv())->bootEnv(dirname(__DIR__).'/.env');
+        (new Dotenv())->bootEnv($root.'/.env');
 
         if ($_SERVER['APP_DEBUG']) {
             umask(0000);
