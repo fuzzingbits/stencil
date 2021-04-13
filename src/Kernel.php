@@ -13,19 +13,19 @@ class Kernel extends BaseKernel
 
     private string $customProjectDir = '';
 
+    public function getProjectDir(): string
+    {
+        return $this->customProjectDir;
+    }
+
     public function registerBundles(): iterable
     {
-        $contents = require dirname(__DIR__).'/config/bundles.php';
+        $contents = require dirname(__DIR__) . '/config/bundles.php';
         foreach ($contents as $class => $envs) {
             if ($envs[$this->environment] ?? $envs['all'] ?? false) {
                 yield new $class();
             }
         }
-    }
-
-    public function getProjectDir(): string
-    {
-        return $this->customProjectDir;
     }
 
     public function setProjectDir(string $projectDir): void
@@ -36,18 +36,18 @@ class Kernel extends BaseKernel
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $container->import('../config/{packages}/*.yaml');
-        $container->import('../config/{packages}/'.$this->environment.'/*.yaml');
+        $container->import('../config/{packages}/' . $this->environment . '/*.yaml');
         $container->import('../config/services.yaml');
-        $container->import('../config/{services}_'.$this->environment.'.yaml');
+        $container->import('../config/{services}_' . $this->environment . '.yaml');
 
-        $container->import($this->getProjectDir().'/config/services.yaml');
+        $container->import($this->getProjectDir() . '/config/services.yaml');
     }
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import('../config/{routes}/'.$this->environment.'/*.yaml');
+        $routes->import('../config/{routes}/' . $this->environment . '/*.yaml');
         $routes->import('../config/{routes}/*.yaml');
         $routes->import('../config/routes.yaml');
-        $routes->import($this->getProjectDir().'/config/routes.yaml');
+        $routes->import($this->getProjectDir() . '/config/routes.yaml');
     }
 }

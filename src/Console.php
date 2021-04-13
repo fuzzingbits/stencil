@@ -15,10 +15,10 @@ class Console
     {
         $input = new ArgvInput();
         if (null !== $env = $input->getParameterOption(['--env', '-e'], null, true)) {
-            putenv('APP_ENV='.$_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = $env);
+            putenv('APP_ENV=' . $_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = $env);
         }
 
-        (new Dotenv())->bootEnv($root.'/.env');
+        (new Dotenv())->bootEnv($root . '/.env');
 
         if ($_SERVER['APP_DEBUG']) {
             umask(0000);
