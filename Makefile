@@ -29,7 +29,7 @@ lint-php: build-php-test
 test: test-php ## Test the application
 
 test-php: build-php-test
-	$(COMPOSER_BIN)/phpunit tests
+	$(COMPOSER_BIN)/phpunit src
 
 clean: ## Remove files listed in .gitignore (possibly with some exceptions)
 	@git init 2> /dev/null
