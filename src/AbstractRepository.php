@@ -2,23 +2,21 @@
 
 namespace FuzzingBits\Stencil;
 
-use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Result;
-
 class AbstractRepository
 {
-    private Connection $connection;
+    protected Database $database;
 
-    public function __construct(Connection $connection)
+    public function __construct(Database $database)
     {
-        $this->connection = $connection;
+        $this->database = $database;
     }
 
     /**
-     * @param array<string,mixed> $bind
+     * @param array<mixed> $bind
+     * @return array<mixed>
      */
-    protected function query(string $sql, array $bind = []): Result
+    protected function select(string $sql, array $bind = []): array
     {
-        return $this->connection->executeQuery($sql, $bind);
+        return $this->database->select($sql, $bind);
     }
 }
