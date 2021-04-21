@@ -40,7 +40,10 @@ class Kernel extends BaseKernel
         $container->import('../config/services.yaml');
         $container->import('../config/{services}_' . $this->environment . '.yaml');
 
+        $container->import($this->getProjectDir() . '/config/{packages}/' . $this->environment . '/*.yaml');
+        $container->import($this->getProjectDir() . '/config/{packages}/*.yaml');
         $container->import($this->getProjectDir() . '/config/services.yaml');
+        $container->import($this->getProjectDir() . '/config/{services}_' . $this->environment . '.yaml');
     }
 
     protected function configureRoutes(RoutingConfigurator $routes): void
@@ -48,6 +51,9 @@ class Kernel extends BaseKernel
         $routes->import('../config/{routes}/' . $this->environment . '/*.yaml');
         $routes->import('../config/{routes}/*.yaml');
         $routes->import('../config/routes.yaml');
+
+        $routes->import($this->getProjectDir() . '/config/{routes}/' . $this->environment . '/*.yaml');
+        $routes->import($this->getProjectDir() . '/config/{routes}/*.yaml');
         $routes->import($this->getProjectDir() . '/config/routes.yaml');
     }
 }
