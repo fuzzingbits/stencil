@@ -54,6 +54,8 @@ class Kernel extends BaseKernel
 
         $routes->import($this->getProjectDir() . '/config/{routes}/' . $this->environment . '/*.yaml');
         $routes->import($this->getProjectDir() . '/config/{routes}/*.yaml');
-        $routes->import($this->getProjectDir() . '/config/routes.yaml');
+        if (is_file($this->getProjectDir() . '/config/routes.yaml')) {
+            $routes->import($this->getProjectDir() . '/config/routes.yaml');
+        }
     }
 }
