@@ -22,6 +22,7 @@ class HmacAuthenticator extends AbstractGuardAuthenticator
             $this->request,
             (string) $user->getPassword(),
         );
+
         return $providedSignature === $correctSignature;
     }
 
@@ -46,7 +47,7 @@ class HmacAuthenticator extends AbstractGuardAuthenticator
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         $data = [
-            'message' => strtr($exception->getMessageKey(), $exception->getMessageData())
+            'message' => strtr($exception->getMessageKey(), $exception->getMessageData()),
         ];
 
         return new JsonResponse($data, Response::HTTP_UNAUTHORIZED);
@@ -57,11 +58,10 @@ class HmacAuthenticator extends AbstractGuardAuthenticator
         return null;
     }
 
-
     public function start(Request $request, AuthenticationException $authException = null): Response
     {
         $data = [
-            'message' => 'Authentication Required'
+            'message' => 'Authentication Required',
         ];
 
         return new JsonResponse($data, Response::HTTP_UNAUTHORIZED);

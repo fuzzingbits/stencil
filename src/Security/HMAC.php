@@ -16,7 +16,7 @@ class HMAC
     ): string {
         $method = strtolower($method);
         $epoch = (new DateTime($date))->getTimestamp();
-        $token = sprintf("%d|%s|%s|%s", $epoch, $method, $path, $payload);
+        $token = sprintf('%d|%s|%s|%s', $epoch, $method, $path, $payload);
         $hash = hash_hmac('sha256', $token, $sharedSecret);
 
         return $hash;

@@ -27,6 +27,7 @@ class HmacUserProvider implements UserProviderInterface
         $user = $this->hmacUsers[$username];
         $password = $user['password'];
         $roles = $user['roles'];
+
         return new HmacUser($username, $password, $roles);
     }
 

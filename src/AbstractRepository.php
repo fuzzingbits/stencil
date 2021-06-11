@@ -13,6 +13,7 @@ class AbstractRepository
 
     /**
      * @param array<mixed> $bind
+     *
      * @return array<mixed>
      */
     protected function select(string $sql, array $bind = []): array

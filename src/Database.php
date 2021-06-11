@@ -2,8 +2,8 @@
 
 namespace FuzzingBits\Stencil;
 
-use Doctrine\DBAL\Result;
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Result;
 
 class Database
 {
@@ -16,7 +16,8 @@ class Database
 
     /**
      * @param array<mixed> $bind
-     * @return integer
+     *
+     * @return int
      */
     public function execute(string $sql, array $bind = []): int
     {
@@ -27,6 +28,7 @@ class Database
 
     /**
      * @param array<mixed> $bind
+     *
      * @return array<mixed>
      */
     public function select(string $sql, array $bind = []): array
