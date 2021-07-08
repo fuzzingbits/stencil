@@ -6,10 +6,12 @@
 # Temporary Files
 /var/
 
+# Environment Files
+/.env.local
+/.env.*.local
+
 # PHP Files
 /vendor/
 .phpunit.result.cache
 .php_cs.cache
 .phpcs-cache
-/.env.local
-/.env.*.local
