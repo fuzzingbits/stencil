@@ -14,6 +14,6 @@ class DefaultController extends AbstractController
 
     public function indexAction(): Response
     {
-        return new Response('Index.');
+        return new Response('Hello world.');
     }
 }
