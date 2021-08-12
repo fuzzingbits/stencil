@@ -29,9 +29,9 @@ class HmacAuthenticator extends AbstractGuardAuthenticator
     public function getCredentials(Request $request)
     {
         return [
-            'username' => (string) $request->headers->get('PHP_AUTH_USER'),
+            'username'  => (string) $request->headers->get('PHP_AUTH_USER'),
             'signature' => (string) $request->headers->get('PHP_AUTH_PW'),
-            'httpDate' => (string) $request->headers->get('HTTP_DATE'),
+            'httpDate'  => (string) $request->headers->get('HTTP_DATE'),
         ];
     }
 
